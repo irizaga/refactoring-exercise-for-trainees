@@ -5,12 +5,12 @@ RSpec.describe GatewayList, type: :service do
     context 'validates gateway' do
       it 'as true if it exists' do
         test_gateway = GatewayList.call('paypal')
-        expect(test_gateway).to be_truthy
+        expect(test_gateway).to eq(true)
       end
 
       it 'as false if it is invalid' do
         test_gateway = GatewayList.call('dummy')
-        expect(test_gateway).to be_falsey
+        expect(test_gateway).to eq(false)
       end
     end
   end

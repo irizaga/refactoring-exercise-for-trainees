@@ -17,6 +17,6 @@ class CreateUser < ApplicationService
     return @cart.user unless @cart.user.nil?
 
     user_params = @user || {}
-    User.create(**user_params.merge(guest: true))
+    User.create(**user_params.as_json.merge(guest: true))
   end
 end

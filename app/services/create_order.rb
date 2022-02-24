@@ -2,8 +2,8 @@
 
 # Order creation
 class CreateOrder < ApplicationService
-  def initialize(purchase_params, user)
-    @purchase_params = purchase_params
+  def initialize(address_params, user)
+    @address_params = address_params
     @user = user
   end
 
@@ -14,16 +14,16 @@ class CreateOrder < ApplicationService
   private
 
   def create_order
-    Order.create!(
+    Order.new(
       user: @user,
       first_name: @user.first_name,
       last_name: @user.last_name,
-      address_1: @purchase_params[:address_1],
-      address_2: @purchase_params[:address_2],
-      city: @purchase_params[:city],
-      state: @purchase_params[:state],
-      country: @purchase_params[:country],
-      zip: @purchase_params[:zip]
+      address_1: @address_params[:address_1],
+      address_2: @address_params[:address_2],
+      city: @address_params[:city],
+      state: @address_params[:state],
+      country: @address_params[:country],
+      zip: @address_params[:zip]
     )
   end
 end

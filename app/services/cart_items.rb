@@ -2,8 +2,6 @@
 
 # Adds items to order
 class CartItems < ApplicationService
-  SHIPPING_COST = 100
-
   def initialize(items, order)
     @items = items
     @order = order
@@ -14,6 +12,8 @@ class CartItems < ApplicationService
   end
 
   private
+
+  SHIPPING_COST = 100
 
   def cart_items
     @items.each do |item|
